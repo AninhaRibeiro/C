@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cliente{
+    char nome[50], email[30], cpf[11];
+    int idade;
+    float renda;
+}cadastro;
+
+int main(){
+
+   struct cliente cliente[3];
+    // Alocação de memoria
+        char*p = ( struct cliente*)malloc(sizeof(struct cliente));
+   if(!p)
+   {
+                printf("\n Erro de memoria insuficente");
+   }
+   else{
+
+   int i;
+
+   for(i=0;i<4;i++){
+
+
+   printf("\nDigite seu nome: ");
+   fflush(stdin);
+   fgets(cliente[i].nome,50,stdin);
+   printf("\nDigite sua idade: ");
+   scanf("%d",&cliente[i].idade);
+   printf("\nDigite seu Email: ");
+   scanf("%s",cliente[i].email);
+   printf("\nDigite seu CPF: ");
+   scanf("%s",cliente[i].cpf);
+   printf("\nDigite sua Renda Mensal: ");
+   scanf("%f",&cliente[i].renda);
+
+   printf("\n---- Dados do Cliente ----\n");
+   printf("\nCliente %s", cliente[i].nome);
+   printf("Idade %d", cliente[i].idade);
+   printf("\nEmail %s", cliente[i].email);
+   printf("\nCPF %s", cliente[i].cpf);
+   printf("\nRenda Mensal %f", cliente[i].renda);
+   printf("\n--------------------------\n");
+
+   }
+        getch();
+        printf("\n Memoria Alocada com sucesso\n");}
+        free(p);
+        // pausar
+        system("pause");
+    return 0;
+}
